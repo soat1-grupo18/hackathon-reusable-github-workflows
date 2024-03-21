@@ -5,9 +5,10 @@
 
 Este repositório contém os workflows que são reutilizados por outros repositórios.
 
-- [Alunos](#alunos)
+- [Introdução](#introdução)
+  - [Alunos](#alunos)
 
-Projeto realizado durante o quarto módulo da Pós Tech Software Architecture da FIAP.
+Projeto realizado durante o Hackathon da Pós Tech Software Architecture da FIAP.
 
 ### Alunos
 
