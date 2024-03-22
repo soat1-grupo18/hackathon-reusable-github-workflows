@@ -111,7 +111,7 @@ jobs:
         with:
           task-definition: ${{ inputs.ecs-task-definition-file }}
           container-name: ${{ inputs.container-name }}
-          image: ${{ steps.build-image.outputs.image }}
+          image: 289389227463.dkr.ecr.us-east-1.amazonaws.com/ms-ponto:${{ github.sha }}
 
       - name: Print task definition
         id: print-task-definition
