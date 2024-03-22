@@ -80,7 +80,7 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push ${{ steps.build-image.outputs.image }}G
+          docker push ${{ steps.build-image.outputs.image }}
           
   deploy:
     name: Deploy
