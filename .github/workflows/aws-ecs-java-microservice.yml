@@ -109,21 +109,19 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ${{ env.ECS_TASK_DEFINITION_FILE }}
+          task-definition: ${{ inputs.ecs-task-definition-file }}
           container-name: ${{ inputs.container-name }}
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Print task definition
         id: print-task-definition
-        env:
-          TASK_DEFINITION_PATH: ${{ steps.task-def.outputs.task-definition }}
         run: |
-          cat "$TASK_DEFINITION_PATH"
+          cat "${{ steps.task-def.outputs.task-definition }}"
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ${{ env.ECS_SERVICE_NAME }}
+          service: ${{ inputs.ecs-service-name }}
           cluster: ${{ inputs.ecs-cluster-name }}
           wait-for-service-stability: true
