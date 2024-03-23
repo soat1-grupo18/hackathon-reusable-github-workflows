@@ -113,6 +113,7 @@ jobs:
         with:
           task-definition: ${{ inputs.ecs-task-definition-file }}
           container-name: ${{ inputs.container-name }}
+          # docs: https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs
           image: ${{ needs.build.outputs.docker-image }}
 
       - name: Print task definition
