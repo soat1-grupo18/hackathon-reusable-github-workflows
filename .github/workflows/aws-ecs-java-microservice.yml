@@ -39,6 +39,8 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    outputs:
+      docker-image: ${{ steps.build-image.outputs.image }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -111,7 +113,7 @@ jobs:
         with:
           task-definition: ${{ inputs.ecs-task-definition-file }}
           container-name: ${{ inputs.container-name }}
-          image: 289389227463.dkr.ecr.us-east-1.amazonaws.com/ms-ponto:${{ github.sha }}
+          image: ${{ needs.build.outputs.docker-image }}
 
       - name: Print task definition
         id: print-task-definition
